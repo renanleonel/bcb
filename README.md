@@ -59,13 +59,13 @@
 2. **Instale as dependências**
 
    ```bash
-   npm install
+   pnpm install
    ```
 
 3. **Inicie o projeto**
 
    ```bash
-   npm run dev
+   pnpm run dev
    ```
 
 4. **Acesse a aplicação**
