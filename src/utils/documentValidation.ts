@@ -1,12 +1,10 @@
 import { DocumentType } from '@/domain/enums';
 
-// Removes non-numeric characters and validates CPF format
 export const validateCPF = (cpf: string): boolean => {
   const cleanCPF = cpf.replace(/\D/g, '');
 
   if (cleanCPF.length !== 11) return false;
 
-  // Check if all digits are the same
   if (/^(\d)\1{10}$/.test(cleanCPF)) return false;
 
   let sum = 0;
@@ -28,16 +26,13 @@ export const validateCPF = (cpf: string): boolean => {
   return cleanCPF.charAt(9) == digit1.toString() && cleanCPF.charAt(10) == digit2.toString();
 };
 
-// Removes non-numeric characters and validates CNPJ format
 export const validateCNPJ = (cnpj: string): boolean => {
   const cleanCNPJ = cnpj.replace(/\D/g, '');
 
   if (cleanCNPJ.length !== 14) return false;
 
-  // Check if all digits are the same
   if (/^(\d)\1{13}$/.test(cleanCNPJ)) return false;
 
-  // First digit validation
   let sum = 0;
   let factor = 5;
 
@@ -49,7 +44,6 @@ export const validateCNPJ = (cnpj: string): boolean => {
   let remainder = sum % 11;
   const digit1 = remainder < 2 ? 0 : 11 - remainder;
 
-  // Second digit validation
   sum = 0;
   factor = 6;
 
